@@ -49,10 +49,6 @@ Foititis::Foititis(const Foititis &foit)
     this -> eksamino = foit.eksamino;
 }
 
-Foititis::~Foititis() {
-    cout << "Εκκίνηση του Destructor." << endl;
-}
-
 //υλοποίηση των set
 void Foititis::set_a_m(char *a_m){
     this -> a_m = a_m;
@@ -121,6 +117,10 @@ void Foititis::increaseEksamino(Foititis &foit) {
     cout << "Το εξάμηνο του φοιτητή αυξήθηκε κατά ένα." << endl;
 }
 
+Foititis::~Foititis() {
+    cout << "Εκκίνηση του Destructor." << endl;
+}
+
 void Foititis::operator+=(Course crs){
     this ->AddDilCourses(crs);
 }
@@ -165,9 +165,11 @@ bool Foititis::operator>= (Foititis &F) {
 
 void Foititis::AddDilCourses(Course course) {
     this -> dilCourses.push_back(course);
-    if(course.get_course_grade() >= 5)
+    //this -> CompCoursesGrade.push_back(course);
+    if( course.get_course_grade() >= 5.0)
     {
-        //this ->AddCompCoursesGrade(course);
+        this -> AddCompCoursesGrade(course);
+        //this -> CompCoursesGrade.push_back(course);
     }
 }
 
@@ -189,7 +191,7 @@ void Foititis::printDilCourses() {
     }
 }
 
-float Foititis::calcCompCoursesGrade() const{
+float Foititis::calcCompletedCoursesGrade() const{
     unsigned int size = this -> CompCoursesGrade.size();
     float sum=0.00;
     float average_grade = 0.00;
@@ -198,12 +200,11 @@ float Foititis::calcCompCoursesGrade() const{
         /*for (int i = 0; i < size; i++) {
             sum = sum + this->CompCoursesGrade[i].get_course_grade();
         }*/
+
         for (const Course& i : this -> CompCoursesGrade) {
             sum = sum + i.get_course_grade();
         }
         average_grade = sum / size;
     }
-
     return average_grade;
 }
-

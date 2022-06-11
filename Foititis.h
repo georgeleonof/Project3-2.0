@@ -50,18 +50,25 @@ public:
 
     //υπερφόρτωση τελεστών
     void operator+=(Course crs);
-
     bool operator== (Foititis &);
     bool operator!= (Foititis &) ;
     bool operator< (Foititis &) ;
     bool operator> (Foititis &) ;
     bool operator<= (Foititis &) ;
     bool operator>= (Foititis &) ;
+
     friend ostream& operator<< (ostream& os, const Foititis &dt)
     {
         //int i;
+        os << "************************************" << endl;
+        os << "Αναλυτική Βαθμολογία για φοιτητή:" << endl;
         os << dt.onoma << endl;
+        os << "Αριθμός Δηλωμένων Μαθημάτων: " << endl;
         cout << dt.dilCourses.size();
+        os << endl;
+        os << "Αριθμός Επιτυχώς Ολοκληρωμένων Μαθημάτων: " << endl;
+        cout << dt.CompCoursesGrade.size();
+        cout << endl;
         /*for(i=0; i<dt.dilCourses.size(); i++)
         {
             os << dt.dilCourses[i]->get_course_verb() << " -> " << dt.dilCourses[i]->get_course_grade() << endl;
@@ -69,15 +76,18 @@ public:
         for (const Course& i : dt.dilCourses) {
             os << i.get_course_verb() << " -> " << i.get_course_grade() << endl;
         }
-        os << "Average is -> " <<dt.calcCompCoursesGrade() << endl;
+        os << "************************************" << endl;
+        os << "Average is -> " << dt.calcCompletedCoursesGrade() << endl;
         os << endl;
+        os << "************************************" << endl;
         return os;
     }
+
     void AddDilCourses (Course course);
     void AddCompCoursesGrade(Course course);
 
     void printDilCourses();
-    float calcCompCoursesGrade() const;
+    float calcCompletedCoursesGrade() const;
 };
 
 #endif //PROJECT3_FOITITIS_H

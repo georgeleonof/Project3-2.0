@@ -1,5 +1,5 @@
 /*
-	Άσκηση Εργαστηρίου 2
+	Άσκηση Εργαστηρίου 3
 	Λεονώφ Γεώργιος
 	Α.Μ.: 151029
 	Π.Σ.: Τ.Ε.Ι. Αθήνας Ν2
@@ -68,16 +68,16 @@ int main() {
     testp=&course2;
 
 
-
+    testF4 += course2;
+    testF4.AddDilCourses(course3);
+    testF4.AddDilCourses(course4);
 
     //testF4 += testp;
     //testF4.printDilCourses();
     cout << testF4;
 
     //testF4 += course4;
-    testF4.AddCompCoursesGrade(course2);
-    testF4.AddCompCoursesGrade(course3);
-    testF4.AddCompCoursesGrade(course4);
+
     //testF4.Print();
     testF4.writeFoititis();
     /*
@@ -96,5 +96,4 @@ int main() {
         //cout << "Οι φοιτητές έχουν ίδιο εξάμηνο σπουδών." << endl;
         cout << "Οι φοιτητές δεν έχουν ίδιο εξάμηνο σπουδών." << endl;
     }
-
 }
