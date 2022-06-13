@@ -6,6 +6,8 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
+#include <stdexcept>
+
 using namespace std;
 
 //default constructor για Μάθημα
@@ -44,6 +46,10 @@ Course::Course(string course_code, string course_verb, unsigned int course_sem, 
     this -> course_code = course_code;
     this -> course_verb = course_verb;
     this -> course_sem = course_sem;
+    if (course_grade < 0)
+    {
+        throw invalid_argument("Ο Βαθμός πρέπει να είναι Θετικός!!");
+    }
     this -> course_grade = course_grade;
 }
 

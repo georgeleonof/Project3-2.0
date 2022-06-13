@@ -13,6 +13,9 @@
 
 #include "Foititis.h"
 #include "Course.h"
+#include "Exception.h"
+#include <stdexcept>
+
 
 using namespace std;
 
@@ -56,21 +59,38 @@ int main() {
 
     //δοκιμή της υπερφόρτωσης του += για ένα μάθημα
     Course course1("N35", "C++", 4);
+    Course course2;
+    Course course3;
+    Course course4;
+    Course course5;
+    Course course6;
+    course6.writeCourse();
     //course1.CoursePrint();
+    try {
+        course2 = Course("N36", "Java", 3, 5);
+        course3 = Course("N45", "Assembly", 1, 5);
+        course4 = Course("N56", "Algorithms", 2, 5);
+        course5 = Course("P34", "Networks I", 3, 1);
+        course6 = Course("P35", "Networks II", 4, 4.5);
 
-    Course course2("N36", "Java", 3, 5);
-    Course course3("N45", "Assembly", 1, 5);
-    Course course4("N56", "Algorithms", 2, 5);
-    Course course5("P34", "Networks I", 3);
-    Course course6("P35", "Networks II", 4);
+        testF4 += course2;
+        testF4 += course3;
+        testF4 += course4;
+        testF4 += course5;
+        testF4 += course6;
+    }
+    catch (const invalid_argument& e)
+    {
+        cout << "O giorgos paly his bird!!!" << endl;
+    }
+    catch (Exception &e) {
+        cout << e.ex_code << " " << e.ex_descr << endl;
+    }
     //float grade1=1.1;
 
     testp=&course2;
 
 
-    testF4 += course2;
-    testF4.AddDilCourses(course3);
-    testF4.AddDilCourses(course4);
 
     //testF4 += testp;
     //testF4.printDilCourses();
@@ -96,4 +116,5 @@ int main() {
         //cout << "Οι φοιτητές έχουν ίδιο εξάμηνο σπουδών." << endl;
         cout << "Οι φοιτητές δεν έχουν ίδιο εξάμηνο σπουδών." << endl;
     }
+
 }

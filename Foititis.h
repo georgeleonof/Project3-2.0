@@ -16,7 +16,7 @@ private:
     unsigned int eksamino;
     vector<Course> dilCourses;
     vector<Course> CompCoursesGrade;
-
+    void AddDilCourses (Course course);
 public:
     //δήλωση όλων των constructors
     Foititis();
@@ -83,7 +83,7 @@ public:
         return os;
     }
 
-    void AddDilCourses (Course course);
+    //void AddDilCourses (Course course);
     void AddCompCoursesGrade(Course course);
 
     void printDilCourses();

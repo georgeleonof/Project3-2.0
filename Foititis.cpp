@@ -1,4 +1,5 @@
 #include "Foititis.h"
+#include "Exception.h"
 #include <stdio.h>
 #include <string>
 #include <iostream>
@@ -122,6 +123,9 @@ Foititis::~Foititis() {
 }
 
 void Foititis::operator+=(Course crs){
+    if(dilCourses.size() > 3){
+        throw (Exception(404, "Aυτό πήγε λάθος!"));
+    }
     this ->AddDilCourses(crs);
 }
 
@@ -164,13 +168,18 @@ bool Foititis::operator>= (Foititis &F) {
 }
 
 void Foititis::AddDilCourses(Course course) {
-    this -> dilCourses.push_back(course);
-    //this -> CompCoursesGrade.push_back(course);
-    if( course.get_course_grade() >= 5.0)
-    {
-        this -> AddCompCoursesGrade(course);
+    this -> dilCourses.size();
+
+    if(course.get_course_code() != "") {
+        this -> dilCourses.push_back(course);
         //this -> CompCoursesGrade.push_back(course);
+        if( course.get_course_grade() >= 5.0)
+        {
+            this -> AddCompCoursesGrade(course);
+            //this -> CompCoursesGrade.push_back(course);
+        }
     }
+
 }
 
 void Foititis::AddCompCoursesGrade(Course course){
