@@ -53,6 +53,7 @@ Course::Course(const Course &crs){
     this -> course_code = crs.course_code;
     this -> course_verb = crs.course_verb;
     this -> course_sem = crs.course_sem;
+    this -> course_grade = crs.course_grade;
 }
 
 //υλοποίηση των set
