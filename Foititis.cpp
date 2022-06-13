@@ -1,5 +1,5 @@
 #include "Foititis.h"
-#include "Exception.h"
+#include "CatException.h"
 #include <stdio.h>
 #include <string>
 #include <iostream>
@@ -124,7 +124,7 @@ Foititis::~Foititis() {
 
 void Foititis::operator+=(Course crs){
     if(dilCourses.size() > 3){
-        throw (Exception(404, "Aυτό πήγε λάθος!"));
+        throw CatException("Αυτό πήγε λάθος");
     }
     this ->AddDilCourses(crs);
 }

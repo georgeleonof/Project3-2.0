@@ -55,7 +55,6 @@ Course::Course(string course_code, string course_verb, unsigned int course_sem, 
 
 //ακολουθεί η υλοποίηση του copy constructor
 Course::Course(const Course &crs){
-    cout << "Γίνεται εκκίνηση του Course copy constructor." << endl;
     this -> course_code = crs.course_code;
     this -> course_verb = crs.course_verb;
     this -> course_sem = crs.course_sem;

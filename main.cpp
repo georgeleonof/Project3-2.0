@@ -13,7 +13,7 @@
 
 #include "Foititis.h"
 #include "Course.h"
-#include "Exception.h"
+#include "CatException.h"
 #include <stdexcept>
 
 
@@ -83,8 +83,8 @@ int main() {
     {
         cout << "O giorgos paly his bird!!!" << endl;
     }
-    catch (Exception &e) {
-        cout << e.ex_code << " " << e.ex_descr << endl;
+    catch (CatException &e) {
+        cout << e.what()<< endl;
     }
     //float grade1=1.1;
 
